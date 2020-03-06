@@ -38,7 +38,7 @@
 
 ![](https://i.imgur.com/BNCEvbH.png)
 
-- 開啟另一個執行環境進入
+- 開啟另一個執行環境(也要先source venv/bin/activate)進入
 
 `/nba_crawler/firstdjango/scrapy_app/scrapy_app`
 
