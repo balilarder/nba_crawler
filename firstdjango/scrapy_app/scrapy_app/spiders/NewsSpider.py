@@ -10,19 +10,18 @@ class MzSpider(CrawlSpider):
     def parse(self, response):
         # news = response.xpath('//div[@class="chroma-gallery mygallery"]//img')
         # /html/body/div[1]/div[1]
-        news = response.xpath('//*[@id="news_body"]')
-        print(news)
-        for n in news:
-            print(n)
-            print("ggg")
-        # for img in news:
-        #     title = img.xpath('@alt').extract_first()
-        #     img_url = img.xpath('@src').extract_first()
-        #     item = ScrapyAppItem()
-        #     item['title'] = title
-        #     item['image_url'] = img_url
-        #     yield item
-
+        titles = response.xpath('//*[@id="news_body"]/dl/dt/a/h3/text()').getall()
+        links = response.xpath('//*[@id="news_body"]/dl/dt/a/@href').getall()
+        # //*[@id="news_body"]/dl/dt[1]/a/h3
+        # //*[@id="news_body"]/dl/dt[2]/a/h3
+        # //*[@id="news_body"]
+        # //*[@id="news_body"]/dl/dt[1]/a
+        # //*[@id="news_body"]/dl/dt[1]/a?
+        # //*[@id="news_body"]/dl/dt[2]/a
+        
+        # print(titles)
+        # print(links)
+        # https://nba.udn.com
 
         # for n in news:
         #     title = n.xpath('@h3').extract_first()
@@ -35,4 +34,11 @@ class MzSpider(CrawlSpider):
         #     print(link)
         #     print('\n')
         #     yield item
+        for title, link in zip(titles, links):
+            item = ScrapyAppItem()
+            item['title'] = title
+            item['link_url'] = 'https://nba.udn.com'+link
+            print(item['title'])
+            print(item['link_url'])
+            yield item
 

@@ -8,5 +8,7 @@
 
 class ScrapyAppPipeline(object):
     def process_item(self, item, spider):
-        # item.save()
+        item.save()
+        print("get a item")
+        print(item)
         return item
