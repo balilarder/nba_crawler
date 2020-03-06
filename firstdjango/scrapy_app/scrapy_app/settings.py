@@ -16,8 +16,8 @@ SPIDER_MODULES = ['scrapy_app.spiders']
 NEWSPIDER_MODULE = 'scrapy_app.spiders'
 
 
-sys.path.append('/Users/balilarder/project/nba_crawler/firstdjango')
-
+# sys.path.append('/Users/balilarder/project/nba_crawler/firstdjango')
+sys.path.append('../..')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'firstdjango.settings'
 django.setup()
 
